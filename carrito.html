@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talentshop</title>
+    <!-- Declaración del tipo de documento y configuración del idioma -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres en UTF-8 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Compatibilidad con Internet Explorer -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración para diseño responsivo -->
+    <title>Talentshop</title> <!-- Título de la página -->
+
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- Estilos de Toastify para notificaciones -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- Archivo CSS principal del proyecto -->
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    <div class="wrapper">
+
+    <div class="wrapper"> <!-- Contenedor principal de la página -->
+        <!-- Encabezado para dispositivos móviles -->
         <header class="header-mobile">
-            <h1 class="logo">Talentshop</h1>
-            <button class="open-menu" id="open-menu">
-                <i class="bi bi-list"></i>
+            <h1 class="logo">Talentshop</h1> <!-- Logo del sitio -->
+            <button class="open-menu" id="open-menu"> <!-- Botón para abrir el menú lateral -->
+                <i class="bi bi-list"></i> <!-- Icono de lista -->
             </button>
         </header>
+
+        <!-- Menú lateral -->
         <aside>
-            <button class="close-menu" id="close-menu">
-                <i class="bi bi-x"></i>
+            <button class="close-menu" id="close-menu"> <!-- Botón para cerrar el menú lateral -->
+                <i class="bi bi-x"></i> <!-- Icono de cerrar -->
             </button>
             <header>
-                <h1 class="logo">Talentshop</h1>
+                <h1 class="logo">Talentshop</h1> <!-- Logo dentro del menú lateral -->
             </header>
             <nav>
                 <ul>
+                    <!-- Enlace para volver a la página principal -->
                     <li>
                         <a class="boton-menu boton-volver" href="./index.html">
                             <i class="bi bi-arrow-return-left"></i> Seguir comprando
                         </a>
                     </li>
+                    <!-- Enlace al carrito (página actual) -->
                     <li>
                         <a class="boton-menu boton-carrito active" href="./carrito.html">
                             <i class="bi bi-cart-fill"></i> Carrito
@@ -34,42 +49,56 @@
                     </li>
                 </ul>
             </nav>
-            <!--Pie de pagina-->
+            <!-- Pie de página dentro del menú lateral -->
             <footer>
-                <p class="texto-footer">© 2025 Talentshop coder</p>
+                <p class="texto-footer">© 2025 Talentshop coder</p> <!-- Texto del footer -->
             </footer>
         </aside>
+
+        <!-- Contenido principal de la página -->
         <main>
-            <h2 class="titulo-principal">Carrito</h2>
+            <h2 class="titulo-principal">Carrito</h2> <!-- Título principal de la sección -->
+
+            <!-- Contenedor del carrito -->
             <div class="contenedor-carrito">
+                <!-- Mensaje cuando el carrito está vacío -->
                 <p id="carrito-vacio" class="carrito-vacio">Tu carrito está vacío. <i class="bi bi-emoji-frown"></i></p>
 
+                <!-- Contenedor para los productos del carrito -->
                 <div id="carrito-productos" class="carrito-productos disabled">
                     <!-- Esto se va a completar con el JS -->
                 </div>
 
+                <!-- Contenedor para las acciones del carrito -->
                 <div id="carrito-acciones" class="carrito-acciones disabled">
                     <div class="carrito-acciones-izquierda">
+                        <!-- Botón para vaciar el carrito -->
                         <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Vaciar carrito</button>
                     </div>
                     <div class="carrito-acciones-derecha">
+                        <!-- Total del carrito -->
                         <div class="carrito-acciones-total">
                             <p>Total:</p>
-                            <p id="total">$3000</p>
+                            <p id="total">$3000</p> <!-- Total calculado -->
                         </div>
+                        <!-- Botón para realizar la compra -->
                         <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar ahora</button>
                     </div>
                 </div>
 
+                <!-- Mensaje de agradecimiento después de la compra -->
                 <p id="carrito-comprado" class="carrito-comprado disabled">Muchas gracias por tu compra. <i class="bi bi-emoji-laughing"></i></p>
-
             </div>
         </main>
     </div>
-    <!--llamar scripts-->
+    
+    <!-- Librería Toastify para notificaciones -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- Librería SweetAlert2 para alertas -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Archivo JavaScript para la funcionalidad del carrito -->
     <script src="./js/carrito.js"></script>
+    <!-- Archivo JavaScript para la funcionalidad del menú -->
     <script src="./js/menu.js"></script>
 </body>
 </html>
