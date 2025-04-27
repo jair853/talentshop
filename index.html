@@ -33,6 +33,7 @@
             <nav>
                 <ul class="menu">
                     <li>
+                        <!--Un botón que representa la categoría de todos los productos.-->
                         <button id="todos" class="boton-menu boton-categoria active"><i
                                 class="bi bi-hand-index-thumb-fill"></i> Todos los productos</button>
                     </li>
@@ -59,6 +60,7 @@
                 <p class="texto-footer">© 2025 Talentshop Coder</p>
             </footer>
         </aside>
+        <!--Área principal de la página donde se mostrará dinámicamente la lista de productos.-->
         <main>
             <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
             <div id="contenedor-productos" class="contenedor-productos">
@@ -66,9 +68,11 @@
             </div>
         </main>
     </div>
-
+<!--Se carga la librería Toastify.js (para mostrar notificaciones mas estilizadas).-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!--probablemente maneja la carga de productos, interacción con el carrito, etc.-->
     <script src="./js/main.js"></script>
+    <!--maneja la apertura/cierre del menú en móviles y la navegación entre categorías-->
     <script src="./js/menu.js"></script>
 
 </body>
