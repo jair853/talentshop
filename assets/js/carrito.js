@@ -108,3 +108,56 @@ function actualizarCantidadProductos() {
         });
     });
 }
+
+// Función para eliminar productos del carrito
+function actualizarBotonesEliminar() {
+    const botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
+
+    botonesEliminar.forEach(boton => {
+        boton.addEventListener("click", (e) => {
+            const idBoton = e.currentTarget.id;
+            const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+
+            productosEnCarrito.splice(index, 1);
+            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+            cargarProductosCarrito();
+        });
+    });
+}
+
+// Función para vaciar el carrito
+botonVaciar.addEventListener("click", () => {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        icon: 'question',
+        html: `Se van a borrar ${productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0)} productos.`,
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            productosEnCarrito = [];
+            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+            cargarProductosCarrito();
+        }
+    });
+});
+
+// Función para actualizar el total
+function actualizarTotal() {
+    const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
+    contenedorTotal.innerText = `$${totalCalculado}`;
+}
+
+// Función para comprar el carrito
+botonComprar.addEventListener("click", () => {
+    productosEnCarrito = [];
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+    actualizarVistaCarrito();
+    // Muestra el mensaje "Gracias por tu compra" y oculta "Tu carrito está vacío"
+    contenedorCarritoVacio.classList.add("disabled");
+    contenedorCarritoComprado.classList.remove("disabled");
+});
+
+// Cargar el carrito al inicio
+cargarProductosCarrito();
