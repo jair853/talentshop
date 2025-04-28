@@ -336,7 +336,7 @@ main {
         z-index: 9;
         background-color: var(--clr-main);
         left: 0;
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .75);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
         transform: translateX(-100%);
         opacity: 0;
         visibility: hidden;
@@ -347,6 +347,8 @@ main {
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
+        position:absolute; /*Permite navegar sobre el menú en pantallas pequeñas*/
+        height: fit-content;
     }
 
     .boton-menu.active::before,
