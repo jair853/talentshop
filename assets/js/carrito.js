@@ -116,11 +116,35 @@ function actualizarBotonesEliminar() {
     botonesEliminar.forEach(boton => {
         boton.addEventListener("click", (e) => {
             const idBoton = e.currentTarget.id;
-            const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
 
-            productosEnCarrito.splice(index, 1);
-            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-            cargarProductosCarrito();
+            // Mostrar mensaje de advertencia con SweetAlert2
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: 'Este producto será eliminado del carrito.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Si el usuario confirma, elimina el producto
+                    const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+                    productosEnCarrito.splice(index, 1);
+
+                    // Actualiza el carrito en el localStorage y recarga los productos
+                    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+                    cargarProductosCarrito();
+
+                    // Mostrar mensaje de éxito
+                    Swal.fire({
+                        title: 'Eliminado',
+                        text: 'El producto ha sido eliminado del carrito.',
+                        icon: 'success',
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                }
+            });
         });
     });
 }
