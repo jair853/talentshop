@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talentshop</title>
+    <!-- Importa los íconos de Bootstrap Icons para usarlos en botones o menús.-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- Importa los íconos de Bootstrap para usarlos en el menú de la página principal-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Importa los estilos de Toastify.js, que sirve para mostrar notificaciones tipo "toasts" en pantalla.-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- Enlaza el archivo de estilos personalizado que creamos para el sitio.-->
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--Tiene el logo "Talentshop" y un botón con ícono de menú (las 3 líneas, también llamado "hamburger menu").-->
+        <header class="header-mobile">
+            <h1 class="logo">Talentshop</h1>
+            <button class="open-menu" id="open-menu">
+                <i class="bi bi-list"></i>
+            </button>
+        </header>
+        <aside>
+            <button class="close-menu" id="close-menu">
+                <i class="bi bi-x"></i>
+            </button>
+            <header>
+                <h1 class="logo">Talentshop</h1>
+            </header>
+            <nav>
+                <ul class="menu_inicio">
+                    <li>
+                        <!--Un botón que representa la categoría de todos los productos.-->
+                        <button id="inicio" class="boton-menu boton-sesion active"><i
+                                class="fa fa-fw fa-home"></i> Sobre nosotros</button>
+                    </li>
+                    <li>
+                        <button id="contacto" class="boton-menu boton-sesion"><i class="fa fa-fw fa-envelope"></i>
+                            Contacto</button>
+                    </li>
+                    <li>
+                        <button id="tienda" class="boton-menu boton-sesion"><i class="fa fa-fw fa-shopping-bag"></i>
+                            Tienda</button>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="texto-footer">© 2025 Talentshop</p>
+            </footer>
+        </aside>
+        <main>
+          <h2 class="titulo-principal" id="titulo-principal">Contacto</h2>
+          <!-- Contenido que se actualizará dinámicamente -->
+          <div id="contenedor-info" class="contenedor-info"></div>         
+      </main>
+    </div>
+
+<!-- Script para abrir cada sesión en la página principal-->
+    <script src="./assets/js/menu_inicio.js"></script>
+<!-- Controla la barra de menú de manera responsiva -->
+ <script src="./assets/js/menu.js"></script>
+
+</body>
+
+</html>
