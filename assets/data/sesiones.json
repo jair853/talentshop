@@ -1,0 +1,16 @@
+[
+    {
+        "id": "inicio",
+        "nombre": "Sobre nosotros",
+        "url": "index.html"},
+    {
+        "id":"contacto",
+        "nombre": "Contacto",
+        "url": "contacto.html"
+    },
+    {
+        "id" : "tienda",
+        "nombre" : "Tienda",
+        "url" : "tienda.html"
+    }
+]
