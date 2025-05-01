@@ -8,7 +8,7 @@
     <title>Talentshop</title>
     <!-- Importa los íconos de Bootstrap Icons para usarlos en botones o menús.-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <!-- Importa los íconos de Bootstrap para usarlos en el menú de la página principal-->
+    <!-- Importa los íconos de Font Awesome para usarlos en el menú de la página principal-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Importa los estilos de Toastify.js, que sirve para mostrar notificaciones tipo "toasts" en pantalla.-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -18,13 +18,7 @@
 
 <body>
     <div class="wrapper">
-        <!--Tiene el logo "Talentshop" y un botón con ícono de menú (las 3 líneas, también llamado "hamburger menu").-->
-        <header class="header-mobile">
-            <h1 class="logo">Talentshop</h1>
-            <button class="open-menu" id="open-menu">
-                <i class="bi bi-list"></i>
-            </button>
-        </header>
+        <!-- Menú lateral -->
         <aside>
             <button class="close-menu" id="close-menu">
                 <i class="bi bi-x"></i>
@@ -35,17 +29,13 @@
             <nav>
                 <ul class="menu_inicio">
                     <li>
-                        <!--Un botón que representa la categoría de todos los productos.-->
-                        <button id="inicio" class="boton-menu boton-sesion active"><i
-                                class="fa fa-fw fa-home"></i> Sobre nosotros</button>
+                        <button id="inicio" class="boton-menu boton-sesion active"><i class="fa fa-fw fa-home"></i> Sobre nosotros</button>
                     </li>
                     <li>
-                        <button id="contacto" class="boton-menu boton-sesion"><i class="fa fa-fw fa-envelope"></i>
-                            Contacto</button>
+                        <button id="contacto" class="boton-menu boton-sesion"><i class="fa fa-fw fa-envelope"></i> Contacto</button>
                     </li>
                     <li>
-                        <button id="tienda" class="boton-menu boton-sesion"><i class="fa fa-fw fa-shopping-bag"></i>
-                            Tienda</button>
+                        <button id="tienda" class="boton-menu boton-sesion"><i class="fa fa-fw fa-shopping-bag"></i> Tienda</button>
                     </li>
                 </ul>
             </nav>
@@ -53,18 +43,78 @@
                 <p class="texto-footer">© 2025 Talentshop</p>
             </footer>
         </aside>
+
+        <!-- Contenido principal -->
         <main>
-          <h2 class="titulo-principal" id="titulo-principal">Contacto</h2>
-          <!-- Contenido que se actualizará dinámicamente -->
-          <div id="contenedor-info" class="contenedor-info"></div>         
-      </main>
+            <h2 class="titulo-principal" id="titulo-principal">Contacto</h2>
+            <!-- Contenedor principal para el formulario y el mapa -->
+            <div class="contenedor-contacto">
+                <!-- Formulario de contacto -->
+                <form class="formulario-contacto" id="form-contacto" method="post" action="#">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-enviar">Enviar</button>
+                </form>
+
+                <!-- Script para manejar el envío del formulario -->
+                <script>
+                    document.getElementById("form-contacto").addEventListener("submit", function (event) {
+                        event.preventDefault(); // Evita el envío real del formulario
+                        alert("¡Gracias por contactarnos! Muy pronto nos pondremos en contacto contigo.");
+                        this.reset(); // Limpia los campos del formulario
+                    });
+                </script>
+
+                <!-- Mapa de Google Maps -->
+                <div class="mapa-contacto">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3274.735142425779!2d-73.24296122591664!3d10.457109965004367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e8ab99832e43415%3A0x6fcb9cc19e70217!2sCra.%206a%20%2328b-36%2C%20Valledupar%2C%20Cesar!5e1!3m2!1ses!2sco!4v1746066931251!5m2!1ses!2sco"
+                        width="100%" 
+                        height="400" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Sección de redes sociales -->
+            <div class="redes-sociales">
+                <h3>Síguenos en nuestras redes sociales</h3>
+                <div class="iconos-redes">
+                    <a href="https://www.facebook.com" target="_blank" class="icono-red">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" class="icono-red">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" class="icono-red">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank" class="icono-red">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                </div>
+
+                <!-- Información de contacto -->
+                <div class="info-contacto">
+                    <p><i class="bi bi-telephone"></i> Teléfono: <a href="tel:+573165259945">316 525 9945</a></p>
+                    <p><i class="bi bi-envelope"></i> Correo: <a href="mailto:info@talentshop.com">info@talentshop.com</a></p>
+                </div>
+            </div>
+        </main>
     </div>
-
-<!-- Script para abrir cada sesión en la página principal-->
-    <script src="./assets/js/menu_inicio.js"></script>
-<!-- Controla la barra de menú de manera responsiva -->
- <script src="./assets/js/menu.js"></script>
-
 </body>
 
 </html>
