@@ -2,24 +2,31 @@ fetch("assets/data/sesiones.json") // Llama el archivo con la url de cada sesió
 .then(response => response.json())
 .then(sesiones => {
     const botonesSesiones = document.querySelectorAll(".boton-sesion");
-    const botonContacto = document.getElementById("contacto");
-    const titulo = document.getElementById("titulo-principal")
-    sesiones.forEach(sesion => {
-        botonesSesiones.forEach(boton => boton.addEventListener("click", (e) => { 
-            e.preventDefault();
-            boton.classList.remove("active"); // Inactiva todas las sesiones
-            e.currentTarget.classList.add("active"); // Activa la sesión seleccionada
-            const sesionActiva = sesiones.find(sesion => sesion.id === e.currentTarget.id);
-            window.location.href = sesionActiva.url; // Carga cada sesión en la página principal
-        }));
-    });
-    if(titulo.innerText === "Contacto") {
-        botonesSesiones.forEach(boton => {
-            boton.classList.remove("active");
+
+    botonesSesiones.forEach(boton => {boton.addEventListener("click", (e) => { 
+
+        const sesionActiva = sesiones.find(sesion => sesion.id === boton.id);
+        localStorage.setItem("sesion",JSON.stringify(sesionActiva)); // Guarda el id de la sesión en almacenamiento local
+        window.location.href = sesionActiva.url; // Carga cada sesión en la página principal
         });
-        botonContacto.classList.add("active");    
-    }
-})
+    });
+
+    // Se activa la pestaña de la sesión al cargar la página respectiva
+    const nuevaSesion = localStorage.getItem("sesion");
+    const sesionIni = JSON.parse(nuevaSesion);
+    const cambioSesiones = [...document.querySelectorAll(".boton-sesion")];
+    const index = cambioSesiones.findIndex(b => b.id === "inicio");
+    cambioSesiones.forEach(btn => {
+        if(sesionIni.id === "tienda" && btn.id === sesionIni.id) {
+            btn.classList.remove("active"); // Remueve clase active si la sesión almacenada en local es la tienda
+            cambioSesiones[index].classList.add("active") // Activa la sesión de inicio
+        } else if (btn.id != sesionIni.id) {
+            btn.classList.remove("active"); // Remueve la clase active si la sesión es diferente a la almacenada
+        } else {
+            btn.classList.add("active"); // Activa la sesión seleccionada si es igual a la almacenada
+        }
+        });
+    })
 .catch(err => {
     alert("Error al cargar sesiones.json", err);
 
