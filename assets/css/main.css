@@ -347,8 +347,6 @@ main {
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
-        position:absolute; /*Permite navegar sobre el menú en pantallas pequeñas*/
-        height: fit-content;
     }
 
     .boton-menu.active::before,
@@ -415,6 +413,9 @@ main {
     .contenedor-productos {
         grid-template-columns: 1fr;
     }
+    .contenedor-info {
+        text-align: left;
+    }
 }
 /* Ajustar el tamaño de la casilla de cantidad */
 .carrito-producto-cantidad-input {
@@ -430,7 +431,6 @@ main {
 /* Contenedor y botones de la página de inicio  */
 .menu-interno {
     display: flex;
-    /* gap: 3rem; */
     justify-content: space-between;
     margin-bottom: 1.5rem;
 }
